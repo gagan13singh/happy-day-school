@@ -1,49 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Happy Day School – Where Learning is Fun!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌈</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap"
+    rel="stylesheet" />
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Nunito', sans-serif; background: #fffbf0; overflow-x: hidden; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-    @keyframes spin-slow { from{transform:rotate(0)} to{transform:rotate(360deg)} }
-    @keyframes bounce-in { 0%{transform:scale(0.3);opacity:0} 60%{transform:scale(1.1)} 80%{transform:scale(0.95)} 100%{transform:scale(1);opacity:1} }
-    @keyframes slide-up { from{transform:translateY(60px);opacity:0} to{transform:translateY(0);opacity:1} }
-    @keyframes wiggle { 0%,100%{transform:rotate(-5deg)} 50%{transform:rotate(5deg)} }
-    @keyframes pulse-ring { 0%{box-shadow:0 0 0 0 rgba(255,180,0,0.5)} 70%{box-shadow:0 0 0 20px rgba(255,180,0,0)} 100%{box-shadow:0 0 0 0 rgba(255,180,0,0)} }
-    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-    @keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.2)} 100%{transform:scale(1)} }
-    @keyframes rainbow { 0%{color:#ff6b6b} 20%{color:#ffa600} 40%{color:#51cf66} 60%{color:#339af0} 80%{color:#cc5de8} 100%{color:#ff6b6b} }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 80px;
+    }
 
-    .float { animation: float 3s ease-in-out infinite; }
-    .spin-slow { animation: spin-slow 12s linear infinite; }
-    .wiggle { animation: wiggle 2s ease-in-out infinite; }
-    .bounce-in { animation: bounce-in 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
-    .slide-up { animation: slide-up 0.7s ease both; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #fffbf0;
+      overflow-x: hidden;
+    }
 
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #fff3d4; }
-    ::-webkit-scrollbar-thumb { background: #ffa600; border-radius: 4px; }
+    @keyframes float {
 
-    .nav-link { transition: color 0.2s, transform 0.2s; }
-    .nav-link:hover { transform: translateY(-2px); color: #ff6b6b !important; }
+      0%,
+      100% {
+        transform: translateY(0)
+      }
 
-    .card-hover { transition: transform 0.3s, box-shadow 0.3s; }
-    .card-hover:hover { transform: translateY(-8px) rotate(-1deg); box-shadow: 0 20px 40px rgba(0,0,0,0.15) !important; }
+      50% {
+        transform: translateY(-14px)
+      }
+    }
 
-    .btn-bounce:hover { animation: pop 0.3s ease; }
+    @keyframes spin-slow {
+      from {
+        transform: rotate(0)
+      }
 
-    .star { display: inline-block; color: #ffd700; }
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    @keyframes bounce-in {
+      0% {
+        transform: scale(0.3);
+        opacity: 0
+      }
+
+      60% {
+        transform: scale(1.1)
+      }
+
+      80% {
+        transform: scale(0.95)
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(60px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1
+      }
+    }
+
+    @keyframes wiggle {
+
+      0%,
+      100% {
+        transform: rotate(-5deg)
+      }
+
+      50% {
+        transform: rotate(5deg)
+      }
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        box-shadow: 0 0 0 0 rgba(255, 180, 0, 0.5)
+      }
+
+      70% {
+        box-shadow: 0 0 0 20px rgba(255, 180, 0, 0)
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(255, 180, 0, 0)
+      }
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0)
+      }
+
+      to {
+        transform: translateX(-50%)
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(1)
+      }
+
+      50% {
+        transform: scale(1.2)
+      }
+
+      100% {
+        transform: scale(1)
+      }
+    }
+
+    @keyframes rainbow {
+      0% {
+        color: #ff6b6b
+      }
+
+      20% {
+        color: #ffa600
+      }
+
+      40% {
+        color: #51cf66
+      }
+
+      60% {
+        color: #339af0
+      }
+
+      80% {
+        color: #cc5de8
+      }
+
+      100% {
+        color: #ff6b6b
+      }
+    }
+
+    .float {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .spin-slow {
+      animation: spin-slow 12s linear infinite;
+    }
+
+    .wiggle {
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    .bounce-in {
+      animation: bounce-in 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    }
+
+    .slide-up {
+      animation: slide-up 0.7s ease both;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #fff3d4;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #ffa600;
+      border-radius: 4px;
+    }
+
+    .nav-link {
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+      color: #ff6b6b !important;
+    }
+
+    .card-hover {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px) rotate(-1deg);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .btn-bounce:hover {
+      animation: pop 0.3s ease;
+    }
+
+    .star {
+      display: inline-block;
+      color: #ffd700;
+    }
   </style>
 </head>
+
 <body>
   <div id="root"></div>
 
@@ -52,7 +231,7 @@
 
     // ── Floating decorations
     const Deco = ({ emoji, style }) => (
-      <span style={{ position:'absolute', fontSize:28, pointerEvents:'none', userSelect:'none', zIndex:0, animation:`float ${2+Math.random()*2}s ease-in-out infinite`, ...style }}>{emoji}</span>
+      <span style={{ position: 'absolute', fontSize: 28, pointerEvents: 'none', userSelect: 'none', zIndex: 0, animation: `float ${2 + Math.random() * 2}s ease-in-out infinite`, ...style }}>{emoji}</span>
     );
 
     // ── Navbar
@@ -64,50 +243,50 @@
         window.addEventListener('scroll', h);
         return () => window.removeEventListener('scroll', h);
       }, []);
-      const links = ['Home','About','Programs','Gallery','Admissions','Contact'];
+      const links = ['Home', 'About', 'Programs', 'Gallery', 'Admissions', 'Contact'];
       return (
         <nav style={{
-          position:'fixed', top:0, left:0, right:0, zIndex:1000,
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
           background: scrolled ? 'rgba(255,255,255,0.97)' : 'transparent',
           boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.08)' : 'none',
-          transition:'all 0.3s', padding:'0 5%',
-          display:'flex', alignItems:'center', justifyContent:'space-between', height:70
+          transition: 'all 0.3s', padding: '0 5%',
+          display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 70
         }}>
-          <a href="#home" style={{ display:'flex', alignItems:'center', gap:10, textDecoration:'none' }}>
-            <span style={{ fontSize:36 }}>🌈</span>
+          <a href="#home" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+            <span style={{ fontSize: 36 }}>🌈</span>
             <div>
-              <div style={{ fontFamily:'Fredoka One', fontSize:22, color:'#ff6b6b', lineHeight:1.1 }}>Happy Day</div>
-              <div style={{ fontFamily:'Fredoka One', fontSize:13, color:'#ffa600', letterSpacing:1 }}>SCHOOL</div>
+              <div style={{ fontFamily: 'Fredoka One', fontSize: 22, color: '#ff6b6b', lineHeight: 1.1 }}>Happy Day</div>
+              <div style={{ fontFamily: 'Fredoka One', fontSize: 13, color: '#ffa600', letterSpacing: 1 }}>SCHOOL</div>
             </div>
           </a>
 
           {/* Desktop links */}
-          <div style={{ display:'flex', gap:28, alignItems:'center' }} className="desktop-nav">
+          <div style={{ display: 'flex', gap: 28, alignItems: 'center' }} className="desktop-nav">
             {links.map(l => (
               <a key={l} href={`#${l.toLowerCase()}`} className="nav-link"
-                style={{ textDecoration:'none', color:'#444', fontWeight:700, fontSize:15 }}>{l}</a>
+                style={{ textDecoration: 'none', color: '#444', fontWeight: 700, fontSize: 15 }}>{l}</a>
             ))}
             <a href="#admissions" style={{
-              background:'linear-gradient(135deg,#ff6b6b,#ffa600)',
-              color:'#fff', padding:'10px 22px', borderRadius:50,
-              textDecoration:'none', fontWeight:800, fontSize:14,
-              boxShadow:'0 4px 15px rgba(255,107,107,0.4)', transition:'transform 0.2s'
+              background: 'linear-gradient(135deg,#ff6b6b,#ffa600)',
+              color: '#fff', padding: '10px 22px', borderRadius: 50,
+              textDecoration: 'none', fontWeight: 800, fontSize: 14,
+              boxShadow: '0 4px 15px rgba(255,107,107,0.4)', transition: 'transform 0.2s'
             }} className="btn-bounce">Enroll Now ✨</a>
           </div>
 
           {/* Mobile hamburger */}
           <button onClick={() => setOpen(!open)} style={{
-            display:'none', background:'none', border:'none', fontSize:28, cursor:'pointer'
+            display: 'none', background: 'none', border: 'none', fontSize: 28, cursor: 'pointer'
           }} id="ham">☰</button>
 
           {open && (
             <div style={{
-              position:'absolute', top:70, left:0, right:0,
-              background:'#fff', padding:'20px 5%', boxShadow:'0 8px 30px rgba(0,0,0,0.1)'
+              position: 'absolute', top: 70, left: 0, right: 0,
+              background: '#fff', padding: '20px 5%', boxShadow: '0 8px 30px rgba(0,0,0,0.1)'
             }}>
               {links.map(l => (
                 <a key={l} href={`#${l.toLowerCase()}`} onClick={() => setOpen(false)}
-                  style={{ display:'block', padding:'12px 0', textDecoration:'none', color:'#444', fontWeight:700, borderBottom:'1px dashed #eee' }}>{l}</a>
+                  style={{ display: 'block', padding: '12px 0', textDecoration: 'none', color: '#444', fontWeight: 700, borderBottom: '1px dashed #eee' }}>{l}</a>
               ))}
             </div>
           )}
@@ -119,62 +298,62 @@
     function Hero() {
       return (
         <section id="home" style={{
-          minHeight:'100vh', position:'relative', overflow:'hidden',
-          background:'linear-gradient(160deg, #fff9e0 0%, #ffecd2 40%, #ffcce0 100%)',
-          display:'flex', alignItems:'center', justifyContent:'center', paddingTop:80
+          minHeight: '100vh', position: 'relative', overflow: 'hidden',
+          background: 'linear-gradient(160deg, #fff9e0 0%, #ffecd2 40%, #ffcce0 100%)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: 80
         }}>
           {/* Big blobs */}
-          <div style={{ position:'absolute', width:500, height:500, borderRadius:'50%', background:'rgba(255,107,107,0.1)', top:-100, right:-100, animation:'spin-slow 20s linear infinite' }} className="spin-slow" />
-          <div style={{ position:'absolute', width:350, height:350, borderRadius:'50%', background:'rgba(81,207,102,0.1)', bottom:-80, left:-80 }} />
+          <div style={{ position: 'absolute', width: 500, height: 500, borderRadius: '50%', background: 'rgba(255,107,107,0.1)', top: -100, right: -100, animation: 'spin-slow 20s linear infinite' }} className="spin-slow" />
+          <div style={{ position: 'absolute', width: 350, height: 350, borderRadius: '50%', background: 'rgba(81,207,102,0.1)', bottom: -80, left: -80 }} />
 
           {/* Floating emojis */}
-          {[['🌟','10%','20%'],['🎈','85%','15%'],['🦋','15%','75%'],['🌸','80%','70%'],['🐣','50%','10%'],['🎨','5%','50%'],['🌈','90%','50%'],['🎀','40%','85%']].map(([e,l,t],i) => (
-            <Deco key={i} emoji={e} style={{ left:l, top:t, animationDelay:`${i*0.4}s` }} />
+          {[['🌟', '10%', '20%'], ['🎈', '85%', '15%'], ['🦋', '15%', '75%'], ['🌸', '80%', '70%'], ['🐣', '50%', '10%'], ['🎨', '5%', '50%'], ['🌈', '90%', '50%'], ['🎀', '40%', '85%']].map(([e, l, t], i) => (
+            <Deco key={i} emoji={e} style={{ left: l, top: t, animationDelay: `${i * 0.4}s` }} />
           ))}
 
-          <div style={{ textAlign:'center', maxWidth:780, padding:'0 20px', position:'relative', zIndex:1 }}>
-            <div className="bounce-in" style={{ display:'inline-block', background:'rgba(255,255,255,0.7)', borderRadius:50, padding:'8px 22px', marginBottom:20, backdropFilter:'blur(10px)', border:'2px solid rgba(255,166,0,0.3)' }}>
-              <span style={{ fontSize:14, fontWeight:800, color:'#ffa600', letterSpacing:1 }}>🎉 ADMISSIONS OPEN 2025–26</span>
+          <div style={{ textAlign: 'center', maxWidth: 780, padding: '0 20px', position: 'relative', zIndex: 1 }}>
+            <div className="bounce-in" style={{ display: 'inline-block', background: 'rgba(255,255,255,0.7)', borderRadius: 50, padding: '8px 22px', marginBottom: 20, backdropFilter: 'blur(10px)', border: '2px solid rgba(255,166,0,0.3)' }}>
+              <span style={{ fontSize: 14, fontWeight: 800, color: '#ffa600', letterSpacing: 1 }}>🎉 ADMISSIONS OPEN 2026–27</span>
             </div>
 
-            <h1 className="slide-up" style={{ fontFamily:'Fredoka One', fontSize:'clamp(44px, 8vw, 88px)', lineHeight:1.1, marginBottom:16, animationDelay:'0.1s' }}>
-              <span style={{ color:'#ff6b6b' }}>Where</span> Little{' '}
-              <span style={{ color:'#ffa600', display:'inline-block', animation:'wiggle 2s ease-in-out infinite' }}>Stars</span>{' '}
-              <span style={{ color:'#51cf66' }}>Shine</span> 🌟
+            <h1 className="slide-up" style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(44px, 8vw, 88px)', lineHeight: 1.1, marginBottom: 16, animationDelay: '0.1s' }}>
+              <span style={{ color: '#ff6b6b' }}>Where</span> Little{' '}
+              <span style={{ color: '#ffa600', display: 'inline-block', animation: 'wiggle 2s ease-in-out infinite' }}>Stars</span>{' '}
+              <span style={{ color: '#51cf66' }}>Shine</span> 🌟
             </h1>
 
-            <p className="slide-up" style={{ fontSize:'clamp(16px,2.5vw,20px)', color:'#666', lineHeight:1.7, marginBottom:36, maxWidth:580, margin:'0 auto 36px', animationDelay:'0.2s' }}>
+            <p className="slide-up" style={{ fontSize: 'clamp(16px,2.5vw,20px)', color: '#666', lineHeight: 1.7, marginBottom: 36, maxWidth: 580, margin: '0 auto 36px', animationDelay: '0.2s' }}>
               A nurturing, playful, and joyful environment where every child blossoms. Play-based learning for ages 2–6 in the heart of Delhi NCR.
             </p>
 
-            <div className="slide-up" style={{ display:'flex', gap:16, justifyContent:'center', flexWrap:'wrap', animationDelay:'0.3s' }}>
+            <div className="slide-up" style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', animationDelay: '0.3s' }}>
               <a href="#admissions" style={{
-                background:'linear-gradient(135deg,#ff6b6b,#ffa600)', color:'#fff',
-                padding:'16px 36px', borderRadius:50, textDecoration:'none',
-                fontWeight:800, fontSize:17, boxShadow:'0 8px 25px rgba(255,107,107,0.45)',
-                animation:'pulse-ring 2s infinite', display:'inline-block'
+                background: 'linear-gradient(135deg,#ff6b6b,#ffa600)', color: '#fff',
+                padding: '16px 36px', borderRadius: 50, textDecoration: 'none',
+                fontWeight: 800, fontSize: 17, boxShadow: '0 8px 25px rgba(255,107,107,0.45)',
+                animation: 'pulse-ring 2s infinite', display: 'inline-block'
               }}>🎒 Apply Now</a>
               <a href="#programs" style={{
-                background:'rgba(255,255,255,0.9)', color:'#ff6b6b',
-                padding:'16px 36px', borderRadius:50, textDecoration:'none',
-                fontWeight:800, fontSize:17, border:'2px solid #ff6b6b',
-                backdropFilter:'blur(10px)'
+                background: 'rgba(255,255,255,0.9)', color: '#ff6b6b',
+                padding: '16px 36px', borderRadius: 50, textDecoration: 'none',
+                fontWeight: 800, fontSize: 17, border: '2px solid #ff6b6b',
+                backdropFilter: 'blur(10px)'
               }}>📚 Our Programs</a>
             </div>
 
             {/* Stats row */}
-            <div className="slide-up" style={{ display:'flex', gap:32, justifyContent:'center', marginTop:56, flexWrap:'wrap', animationDelay:'0.4s' }}>
-              {[['500+','Happy Kids'],['15+','Years of Joy'],['30+','Activities'],['98%','Parent Satisfaction']].map(([n,l]) => (
-                <div key={l} style={{ textAlign:'center' }}>
-                  <div style={{ fontFamily:'Fredoka One', fontSize:32, color:'#ff6b6b' }}>{n}</div>
-                  <div style={{ fontSize:13, color:'#888', fontWeight:700 }}>{l}</div>
+            <div className="slide-up" style={{ display: 'flex', gap: 32, justifyContent: 'center', marginTop: 56, flexWrap: 'wrap', animationDelay: '0.4s' }}>
+              {[['500+', 'Happy Kids'], ['15+', 'Years of Joy'], ['30+', 'Activities'], ['98%', 'Parent Satisfaction']].map(([n, l]) => (
+                <div key={l} style={{ textAlign: 'center' }}>
+                  <div style={{ fontFamily: 'Fredoka One', fontSize: 32, color: '#ff6b6b' }}>{n}</div>
+                  <div style={{ fontSize: 13, color: '#888', fontWeight: 700 }}>{l}</div>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Bottom wave */}
-          <svg viewBox="0 0 1440 80" style={{ position:'absolute', bottom:0, left:0, right:0, width:'100%' }} preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 80" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, width: '100%' }} preserveAspectRatio="none">
             <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#fffbf0" />
           </svg>
         </section>
@@ -183,12 +362,12 @@
 
     // ── Marquee banner
     function Banner() {
-      const items = ['🎨 Art & Craft','🎵 Music & Dance','📚 Pre-Reading','🌱 Nature Play','🧩 Puzzles & Logic','🤸 Yoga & Movement','🎭 Dramatics','🔬 Science Discovery','🏏 Sports Fun','🎤 Show & Tell'];
+      const items = ['🎨 Art & Craft', '🎵 Music & Dance', '📚 Pre-Reading', '🌱 Nature Play', '🧩 Puzzles & Logic', '🤸 Yoga & Movement', '🎭 Dramatics', '🔬 Science Discovery', '🏏 Sports Fun', '🎤 Show & Tell'];
       return (
-        <div style={{ background:'linear-gradient(135deg,#ff6b6b,#ffa600)', padding:'14px 0', overflow:'hidden', position:'relative' }}>
-          <div style={{ display:'flex', animation:'marquee 25s linear infinite', width:'200%' }}>
-            {[...items,...items].map((item,i) => (
-              <span key={i} style={{ color:'#fff', fontWeight:800, fontSize:15, whiteSpace:'nowrap', paddingRight:48 }}>{item}</span>
+        <div style={{ background: 'linear-gradient(135deg,#ff6b6b,#ffa600)', padding: '14px 0', overflow: 'hidden', position: 'relative' }}>
+          <div style={{ display: 'flex', animation: 'marquee 25s linear infinite', width: '200%' }}>
+            {[...items, ...items].map((item, i) => (
+              <span key={i} style={{ color: '#fff', fontWeight: 800, fontSize: 15, whiteSpace: 'nowrap', paddingRight: 48 }}>{item}</span>
             ))}
           </div>
         </div>
@@ -198,41 +377,49 @@
     // ── About
     function About() {
       return (
-        <section id="about" style={{ padding:'90px 5%', background:'#fffbf0', position:'relative', overflow:'hidden' }}>
-          <Deco emoji="🌻" style={{ right:'5%', top:'10%', fontSize:60, opacity:0.3 }} />
-          <Deco emoji="🦄" style={{ left:'3%', bottom:'10%', fontSize:50, opacity:0.25 }} />
+        <section id="about" style={{ padding: '90px 5%', background: '#fffbf0', position: 'relative', overflow: 'hidden' }}>
+          <Deco emoji="🌻" style={{ right: '5%', top: '10%', fontSize: 60, opacity: 0.3 }} />
+          <Deco emoji="🦄" style={{ left: '3%', bottom: '10%', fontSize: 50, opacity: 0.25 }} />
 
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:60, alignItems:'center' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
             {/* Illustration side */}
-            <div style={{ position:'relative', display:'flex', justifyContent:'center' }}>
-              <div style={{ width:300, height:300, borderRadius:'50%', background:'linear-gradient(135deg,#ffd3e8,#ffecd2)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:130, animation:'float 4s ease-in-out infinite', boxShadow:'0 20px 60px rgba(255,107,107,0.2)' }}>
-                🏫
+            <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: 300, height: 300, borderRadius: '50%', background: 'linear-gradient(135deg,#ffd3e8,#ffecd2)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 130, animation: 'float 4s ease-in-out infinite', boxShadow: '0 20px 60px rgba(255,107,107,0.2)', overflow: 'hidden' }}>
+                <img src="images/about.png" alt="Mrs. Ranjeet Kaur - Principal" style={{ width: '100%', height: '100%', objectFit: 'cover' }} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'block' }} />
+                <span style={{ display: 'none' }}>🏫</span>
               </div>
-              {[['🎈','top:10%,right:5%'],['⭐','bottom:15%,left:5%'],['🌸','top:50%,right:0']].map(([e,pos],i) => (
+              <div style={{ marginTop: 20, background: '#fff', padding: '10px 24px', borderRadius: 50, boxShadow: '0 10px 30px rgba(0,0,0,0.08)', display: 'flex', alignItems: 'center', gap: 12, zIndex: 1, animation: 'slide-up 0.7s ease both', animationDelay: '0.2s' }}>
+                <div style={{ fontSize: 22 }}>👩‍🏫</div>
+                <div>
+                  <div style={{ fontWeight: 800, color: '#2d2d2d', fontSize: 15 }}>Mrs. Ranjeet Kaur</div>
+                  <div style={{ color: '#ff6b6b', fontSize: 11, fontWeight: 800, letterSpacing: 0.5 }}>OUR PRINCIPAL</div>
+                </div>
+              </div>
+              {[['🎈', 'top:10%,right:5%'], ['⭐', 'bottom:15%,left:5%'], ['🌸', 'top:50%,right:0']].map(([e, pos], i) => (
                 <div key={i} style={{
-                  position:'absolute', fontSize:32, animation:`float ${2+i}s ease-in-out infinite`, animationDelay:`${i*0.5}s`,
+                  position: 'absolute', fontSize: 32, animation: `float ${2 + i}s ease-in-out infinite`, animationDelay: `${i * 0.5}s`,
                   ...Object.fromEntries(pos.split(',').map(p => p.split(':')))
                 }}>{e}</div>
               ))}
             </div>
 
             <div>
-              <div style={{ display:'inline-block', background:'#fff3d4', borderRadius:50, padding:'6px 18px', marginBottom:16 }}>
-                <span style={{ color:'#ffa600', fontWeight:800, fontSize:13 }}>🌟 ABOUT US</span>
+              <div style={{ display: 'inline-block', background: '#fff3d4', borderRadius: 50, padding: '6px 18px', marginBottom: 16 }}>
+                <span style={{ color: '#ffa600', fontWeight: 800, fontSize: 13 }}>🌟 ABOUT US</span>
               </div>
-              <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(30px,4vw,48px)', color:'#2d2d2d', marginBottom:16, lineHeight:1.2 }}>
+              <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d', marginBottom: 16, lineHeight: 1.2 }}>
                 A Second Home for Your Little One 💛
               </h2>
-              <p style={{ color:'#666', lineHeight:1.8, fontSize:16, marginBottom:20 }}>
+              <p style={{ color: '#666', lineHeight: 1.8, fontSize: 16, marginBottom: 20 }}>
                 Happy Day School was founded with a simple belief: <strong>every child is born curious</strong>. Our play-based curriculum nurtures that curiosity through structured yet joyful experiences designed for ages 2 to 6.
               </p>
-              <p style={{ color:'#666', lineHeight:1.8, fontSize:16, marginBottom:28 }}>
+              <p style={{ color: '#666', lineHeight: 1.8, fontSize: 16, marginBottom: 28 }}>
                 Located in Delhi NCR, we provide a <strong>safe, inclusive, and stimulating</strong> environment where children develop social, emotional, cognitive and physical skills — all while having an absolute blast!
               </p>
-              {[['🏆','Award-winning curriculum designed by child psychologists'],['❤️','Low student-to-teacher ratio (1:8) for personalised care'],['🌍','Celebrating diversity, culture, and creativity every day']].map(([icon,text]) => (
-                <div key={text} style={{ display:'flex', gap:12, alignItems:'flex-start', marginBottom:12 }}>
-                  <span style={{ fontSize:22, flexShrink:0, marginTop:2 }}>{icon}</span>
-                  <span style={{ color:'#555', fontWeight:600, lineHeight:1.5 }}>{text}</span>
+              {[['🏆', 'Award-winning curriculum designed by child psychologists'], ['❤️', 'Low student-to-teacher ratio (1:8) for personalised care'], ['🌍', 'Celebrating diversity, culture, and creativity every day']].map(([icon, text]) => (
+                <div key={text} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', marginBottom: 12 }}>
+                  <span style={{ fontSize: 22, flexShrink: 0, marginTop: 2 }}>{icon}</span>
+                  <span style={{ color: '#555', fontWeight: 600, lineHeight: 1.5 }}>{text}</span>
                 </div>
               ))}
             </div>
@@ -244,40 +431,40 @@
     // ── Programs
     function Programs() {
       const programs = [
-        { emoji:'🐣', name:'Playgroup', age:'2–3 yrs', color:'#ffecf0', accent:'#ff6b6b', desc:'Sensory play, music, art, and making first friends in a loving environment.' },
-        { emoji:'🌱', name:'Nursery', age:'3–4 yrs', color:'#e8faf0', accent:'#51cf66', desc:'Early literacy, numeracy, nature exploration and creative expression.' },
-        { emoji:'🚀', name:'LKG', age:'4–5 yrs', color:'#fff3d4', accent:'#ffa600', desc:'School readiness, phonics, basic maths, science wonder & leadership skills.' },
-        { emoji:'⭐', name:'UKG', age:'5–6 yrs', color:'#eef4ff', accent:'#339af0', desc:'Advanced language, logic, project work and confident communication.' },
-        { emoji:'🎨', name:'After-School Art', age:'All ages', color:'#fdf4ff', accent:'#cc5de8', desc:'Painting, craft, sculpture, and mixed media for budding Picassos.' },
-        { emoji:'🎵', name:'Music & Dance', age:'All ages', color:'#fff9db', accent:'#f59f00', desc:'Classical, folk, Bollywood rhythms, and creative movement classes.' },
+        { emoji: '🐣', name: 'Playgroup', age: '2–3 yrs', color: '#ffecf0', accent: '#ff6b6b', desc: 'Sensory play, music, art, and making first friends in a loving environment.' },
+        { emoji: '🌱', name: 'Nursery', age: '3–4 yrs', color: '#e8faf0', accent: '#51cf66', desc: 'Early literacy, numeracy, nature exploration and creative expression.' },
+        { emoji: '🚀', name: 'LKG', age: '4–5 yrs', color: '#fff3d4', accent: '#ffa600', desc: 'School readiness, phonics, basic maths, science wonder & leadership skills.' },
+        { emoji: '⭐', name: 'UKG', age: '5–6 yrs', color: '#eef4ff', accent: '#339af0', desc: 'Advanced language, logic, project work and confident communication.' },
+        { emoji: '🎨', name: 'After-School Art', age: 'All ages', color: '#fdf4ff', accent: '#cc5de8', desc: 'Painting, craft, sculpture, and mixed media for budding Picassos.' },
+        { emoji: '🎵', name: 'Music & Dance', age: 'All ages', color: '#fff9db', accent: '#f59f00', desc: 'Classical, folk, Bollywood rhythms, and creative movement classes.' },
       ];
       return (
-        <section id="programs" style={{ padding:'90px 5%', background:'linear-gradient(180deg,#f0f8ff,#fff9f0)', position:'relative' }}>
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <div style={{ display:'inline-block', background:'#e8faf0', borderRadius:50, padding:'6px 18px', marginBottom:12 }}>
-              <span style={{ color:'#51cf66', fontWeight:800, fontSize:13 }}>📚 PROGRAMS</span>
+        <section id="programs" style={{ padding: '90px 5%', background: 'linear-gradient(180deg,#f0f8ff,#fff9f0)', position: 'relative' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#e8faf0', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#51cf66', fontWeight: 800, fontSize: 13 }}>📚 PROGRAMS</span>
             </div>
-            <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(30px,4vw,48px)', color:'#2d2d2d', marginBottom:12 }}>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d', marginBottom: 12 }}>
               Learning Wrapped in Play 🎭
             </h2>
-            <p style={{ color:'#888', fontSize:17, maxWidth:560, margin:'0 auto' }}>From first words to first friendships — we've got a program for every stage.</p>
+            <p style={{ color: '#888', fontSize: 17, maxWidth: 560, margin: '0 auto' }}>From first words to first friendships — we've got a program for every stage.</p>
           </div>
 
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(300px,1fr))', gap:28 }}>
-            {programs.map((p,i) => (
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(300px,1fr))', gap: 28 }}>
+            {programs.map((p, i) => (
               <div key={p.name} className="card-hover" style={{
-                background:p.color, borderRadius:24, padding:32,
-                border:`2px solid ${p.accent}22`,
-                boxShadow:`0 8px 30px ${p.accent}15`,
-                animationDelay:`${i*0.1}s`
+                background: p.color, borderRadius: 24, padding: 32,
+                border: `2px solid ${p.accent}22`,
+                boxShadow: `0 8px 30px ${p.accent}15`,
+                animationDelay: `${i * 0.1}s`
               }}>
-                <div style={{ fontSize:52, marginBottom:16, display:'inline-block', animation:'float 3s ease-in-out infinite', animationDelay:`${i*0.3}s` }}>{p.emoji}</div>
-                <div style={{ display:'flex', justifyContent:'space-between', alignItems:'flex-start', marginBottom:10 }}>
-                  <h3 style={{ fontFamily:'Fredoka One', fontSize:24, color:'#2d2d2d' }}>{p.name}</h3>
-                  <span style={{ background:p.accent, color:'#fff', padding:'4px 12px', borderRadius:50, fontSize:12, fontWeight:800 }}>{p.age}</span>
+                <div style={{ fontSize: 52, marginBottom: 16, display: 'inline-block', animation: 'float 3s ease-in-out infinite', animationDelay: `${i * 0.3}s` }}>{p.emoji}</div>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: 10 }}>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 24, color: '#2d2d2d' }}>{p.name}</h3>
+                  <span style={{ background: p.accent, color: '#fff', padding: '4px 12px', borderRadius: 50, fontSize: 12, fontWeight: 800 }}>{p.age}</span>
                 </div>
-                <p style={{ color:'#666', lineHeight:1.7, fontSize:15 }}>{p.desc}</p>
-                <a href="#admissions" style={{ display:'inline-block', marginTop:20, color:p.accent, fontWeight:800, fontSize:14, textDecoration:'none', borderBottom:`2px solid ${p.accent}` }}>Learn more →</a>
+                <p style={{ color: '#666', lineHeight: 1.7, fontSize: 15 }}>{p.desc}</p>
+                <a href="#admissions" style={{ display: 'inline-block', marginTop: 20, color: p.accent, fontWeight: 800, fontSize: 14, textDecoration: 'none', borderBottom: `2px solid ${p.accent}` }}>Learn more →</a>
               </div>
             ))}
           </div>
@@ -288,34 +475,34 @@
     // ── Why Choose Us
     function WhyUs() {
       const features = [
-        { emoji:'🏡', title:'Safe & Secure Campus', desc:'CCTV monitored, child-safe furniture, fire-safe building and trained staff at every step.' },
-        { emoji:'🥗', title:'Nutritious Meals', desc:'Healthy, home-style vegetarian meals and snacks planned by a certified nutritionist.' },
-        { emoji:'📱', title:'Daily Parent Updates', desc:'Real-time photo updates, daily activity reports and open communication via our parent app.' },
-        { emoji:'🌿', title:'Eco-Friendly Campus', desc:'Green spaces, kitchen garden, and sustainability education built into everyday learning.' },
-        { emoji:'🧠', title:'Trained Educators', desc:'All teachers are B.Ed / ECCEd certified with regular training in child psychology.' },
-        { emoji:'🚌', title:'Safe Transport', desc:'AC buses with GPS tracking, lady attendants, and convenient pick-up/drop routes across Delhi NCR.' },
+        { emoji: '🏡', title: 'Safe & Secure Campus', desc: 'CCTV monitored, child-safe furniture, fire-safe building and trained staff at every step.' },
+        { emoji: '🥗', title: 'Nutritious Meals', desc: 'Healthy, home-style vegetarian meals and snacks planned by a certified nutritionist.' },
+        { emoji: '📱', title: 'Daily Parent Updates', desc: 'Real-time photo updates, daily activity reports and open communication via our parent app.' },
+        { emoji: '🌿', title: 'Eco-Friendly Campus', desc: 'Green spaces, kitchen garden, and sustainability education built into everyday learning.' },
+        { emoji: '🧠', title: 'Trained Educators', desc: 'All teachers are B.Ed / ECCEd certified with regular training in child psychology.' },
+        { emoji: '🧸', title: 'Comfortable Campus', desc: 'Our entire facility is fully air-conditioned and climate-controlled to keep your child comfortable year-round.' },
       ];
       return (
-        <section style={{ padding:'90px 5%', background:'#fffbf0' }}>
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <div style={{ display:'inline-block', background:'#ffecf0', borderRadius:50, padding:'6px 18px', marginBottom:12 }}>
-              <span style={{ color:'#ff6b6b', fontWeight:800, fontSize:13 }}>💡 WHY HAPPY DAY?</span>
+        <section style={{ padding: '90px 5%', background: '#fffbf0' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#ffecf0', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#ff6b6b', fontWeight: 800, fontSize: 13 }}>💡 WHY HAPPY DAY?</span>
             </div>
-            <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(30px,4vw,48px)', color:'#2d2d2d' }}>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d' }}>
               Everything Your Child Deserves 🌈
             </h2>
           </div>
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:24 }}>
-            {features.map((f,i) => (
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 24 }}>
+            {features.map((f, i) => (
               <div key={f.title} className="card-hover" style={{
-                background:'#fff', borderRadius:20, padding:'28px 24px',
-                boxShadow:'0 4px 20px rgba(0,0,0,0.06)', border:'1.5px solid #f0f0f0',
-                display:'flex', gap:18
+                background: '#fff', borderRadius: 20, padding: '28px 24px',
+                boxShadow: '0 4px 20px rgba(0,0,0,0.06)', border: '1.5px solid #f0f0f0',
+                display: 'flex', gap: 18
               }}>
-                <div style={{ fontSize:40, flexShrink:0, height:56, width:56, background:'#fff9e0', borderRadius:16, display:'flex', alignItems:'center', justifyContent:'center' }}>{f.emoji}</div>
+                <div style={{ fontSize: 40, flexShrink: 0, height: 56, width: 56, background: '#fff9e0', borderRadius: 16, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>{f.emoji}</div>
                 <div>
-                  <h3 style={{ fontFamily:'Fredoka One', fontSize:18, color:'#2d2d2d', marginBottom:8 }}>{f.title}</h3>
-                  <p style={{ color:'#777', fontSize:14, lineHeight:1.6 }}>{f.desc}</p>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 18, color: '#2d2d2d', marginBottom: 8 }}>{f.title}</h3>
+                  <p style={{ color: '#777', fontSize: 14, lineHeight: 1.6 }}>{f.desc}</p>
                 </div>
               </div>
             ))}
@@ -327,39 +514,39 @@
     // ── Testimonials
     function Testimonials() {
       const reviews = [
-        { name:'Priya Sharma', child:'Aanya, 4 yrs', text:'My daughter was so shy before Happy Day School. Now she sings, dances and can\'t wait for school every morning! The teachers are incredibly warm and caring.', stars:5 },
-        { name:'Rohit & Meera Gupta', child:'Dev, 3 yrs', text:'The daily photo updates make us feel so connected. Dev has grown so much in just 6 months — his vocabulary, confidence and social skills are amazing!', stars:5 },
-        { name:'Sunita Verma', child:'Riya, 5 yrs', text:'Happy Day School is the best decision we made for Riya\'s early education. The balanced mix of fun and academics truly prepares children for big school.', stars:5 },
-        { name:'Arjun Mehta', child:'Kabir, 4 yrs', text:'What I love most is the focus on holistic development. Kabir learns music, yoga, art AND academics — all in one happy place. Highly recommended!', stars:5 },
+        { name: 'Priya Sharma', child: 'Aanya, 4 yrs', text: 'My daughter was so shy before Happy Day School. Now she sings, dances and can\'t wait for school every morning! The teachers are incredibly warm and caring.', stars: 5 },
+        { name: 'Rohit & Meera Gupta', child: 'Dev, 3 yrs', text: 'The daily photo updates make us feel so connected. Dev has grown so much in just 6 months — his vocabulary, confidence and social skills are amazing!', stars: 5 },
+        { name: 'Sunita Verma', child: 'Riya, 5 yrs', text: 'Happy Day School is the best decision we made for Riya\'s early education. The balanced mix of fun and academics truly prepares children for big school.', stars: 5 },
+        { name: 'Arjun Mehta', child: 'Kabir, 4 yrs', text: 'What I love most is the focus on holistic development. Kabir learns music, yoga, art AND academics — all in one happy place. Highly recommended!', stars: 5 },
       ];
       return (
-        <section style={{ padding:'90px 5%', background:'linear-gradient(135deg,#fff0f6,#e8f4fd)' }}>
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <div style={{ display:'inline-block', background:'#fff3d4', borderRadius:50, padding:'6px 18px', marginBottom:12 }}>
-              <span style={{ color:'#ffa600', fontWeight:800, fontSize:13 }}>💬 TESTIMONIALS</span>
+        <section style={{ padding: '90px 5%', background: 'linear-gradient(135deg,#fff0f6,#e8f4fd)' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#fff3d4', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#ffa600', fontWeight: 800, fontSize: 13 }}>💬 TESTIMONIALS</span>
             </div>
-            <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(30px,4vw,48px)', color:'#2d2d2d' }}>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d' }}>
               Parents Love Us 💖
             </h2>
           </div>
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(280px,1fr))', gap:24 }}>
-            {reviews.map((r,i) => (
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(280px,1fr))', gap: 24 }}>
+            {reviews.map((r, i) => (
               <div key={r.name} className="card-hover" style={{
-                background:'#fff', borderRadius:24, padding:28,
-                boxShadow:'0 8px 30px rgba(0,0,0,0.08)', border:'1.5px solid #f0e0f0'
+                background: '#fff', borderRadius: 24, padding: 28,
+                boxShadow: '0 8px 30px rgba(0,0,0,0.08)', border: '1.5px solid #f0e0f0'
               }}>
-                <div style={{ fontSize:20, marginBottom:12 }}>{'⭐'.repeat(r.stars)}</div>
-                <p style={{ color:'#555', lineHeight:1.7, fontSize:15, marginBottom:20, fontStyle:'italic' }}>"{r.text}"</p>
-                <div style={{ display:'flex', alignItems:'center', gap:12 }}>
+                <div style={{ fontSize: 20, marginBottom: 12 }}>{'⭐'.repeat(r.stars)}</div>
+                <p style={{ color: '#555', lineHeight: 1.7, fontSize: 15, marginBottom: 20, fontStyle: 'italic' }}>"{r.text}"</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                   <div style={{
-                    width:44, height:44, borderRadius:'50%',
-                    background:`hsl(${i*60},70%,85%)`,
-                    display:'flex', alignItems:'center', justifyContent:'center',
-                    fontFamily:'Fredoka One', fontSize:18, color:`hsl(${i*60},60%,40%)`
+                    width: 44, height: 44, borderRadius: '50%',
+                    background: `hsl(${i * 60},70%,85%)`,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    fontFamily: 'Fredoka One', fontSize: 18, color: `hsl(${i * 60},60%,40%)`
                   }}>{r.name[0]}</div>
                   <div>
-                    <div style={{ fontWeight:800, fontSize:14, color:'#333' }}>{r.name}</div>
-                    <div style={{ fontSize:12, color:'#999' }}>Parent of {r.child}</div>
+                    <div style={{ fontWeight: 800, fontSize: 14, color: '#333' }}>{r.name}</div>
+                    <div style={{ fontSize: 12, color: '#999' }}>Parent of {r.child}</div>
                   </div>
                 </div>
               </div>
@@ -372,34 +559,44 @@
     // ── Gallery
     function Gallery() {
       const items = [
-        { emoji:'🎨', label:'Art Class', bg:'#ffecf0' },
-        { emoji:'🌱', label:'Garden Time', bg:'#e8faf0' },
-        { emoji:'🎵', label:'Music Fun', bg:'#fff3d4' },
-        { emoji:'📖', label:'Story Circle', bg:'#eef4ff' },
-        { emoji:'🤸', label:'Yoga & Fitness', bg:'#fdf4ff' },
-        { emoji:'🎭', label:'Drama Club', bg:'#fff9db' },
-        { emoji:'🧩', label:'Puzzle Play', bg:'#ffe8d6' },
-        { emoji:'🌍', label:'World Explorer', bg:'#e3fafc' },
+        { img: 'images/gallery-1.png', emoji: '🏆', label: 'Achievements', bg: '#ffecf0' },
+        { img: 'images/gallery-2.png', emoji: '🎉', label: 'Celebrations', bg: '#e8faf0' },
+        { img: 'images/gallery-3.jpg', emoji: '📸', label: 'First Day', bg: '#fff3d4' },
+        { img: 'images/Screenshot 2026-04-11 150451.png', emoji: '🎤', label: 'Rhymes', bg: '#eef4ff' },
+        { emoji: '🤸', label: 'Yoga & Fitness', bg: '#fdf4ff' },
+        { emoji: '🎭', label: 'Drama Club', bg: '#fff9db' },
+        { emoji: '🧩', label: 'Puzzle Play', bg: '#ffe8d6' },
+        { emoji: '🌍', label: 'World Explorer', bg: '#e3fafc' },
       ];
       return (
-        <section id="gallery" style={{ padding:'90px 5%', background:'#fffbf0' }}>
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <div style={{ display:'inline-block', background:'#eef4ff', borderRadius:50, padding:'6px 18px', marginBottom:12 }}>
-              <span style={{ color:'#339af0', fontWeight:800, fontSize:13 }}>📸 GALLERY</span>
+        <section id="gallery" style={{ padding: '90px 5%', background: '#fffbf0' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#eef4ff', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#339af0', fontWeight: 800, fontSize: 13 }}>📸 GALLERY</span>
             </div>
-            <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(30px,4vw,48px)', color:'#2d2d2d' }}>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d' }}>
               A Peek Into Our Happy World 🌏
             </h2>
           </div>
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'repeat(auto-fill,minmax(220px,1fr))', gap:20 }}>
-            {items.map((item,i) => (
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fill,minmax(220px,1fr))', gap: 20 }}>
+            {items.map((item, i) => (
               <div key={item.label} className="card-hover" style={{
-                background:item.bg, borderRadius:20, aspectRatio:'1',
-                display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:12,
-                cursor:'pointer', border:'2px solid transparent', transition:'all 0.3s'
+                background: item.bg, borderRadius: 20, aspectRatio: '1',
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 12,
+                cursor: 'pointer', border: '2px solid transparent', transition: 'all 0.3s', overflow: 'hidden', position: 'relative'
               }}>
-                <div style={{ fontSize:64, animation:'float 3s ease-in-out infinite', animationDelay:`${i*0.25}s` }}>{item.emoji}</div>
-                <span style={{ fontFamily:'Fredoka One', fontSize:18, color:'#555' }}>{item.label}</span>
+                {item.img ? (
+                  <img src={item.img} alt={item.label} style={{ position: 'absolute', width: '100%', height: '100%', objectFit: 'cover', top: 0, left: 0, zIndex: 0 }} onError={(e) => { e.target.style.display = 'none'; e.target.nextSibling.style.display = 'flex' }} />
+                ) : null}
+                <div style={{ zIndex: 1, display: item.img ? 'none' : 'flex', flexDirection: 'column', alignItems: 'center', gap: 12 }}>
+                  <div style={{ fontSize: 64, animation: 'float 3s ease-in-out infinite', animationDelay: `${i * 0.25}s` }}>{item.emoji}</div>
+                  <span style={{ fontFamily: 'Fredoka One', fontSize: 18, color: '#555' }}>{item.label}</span>
+                </div>
+                {item.img && (
+                  <div style={{ position: 'absolute', bottom: 0, width: '100%', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(4px)', padding: '8px', textAlign: 'center', zIndex: 1 }}>
+                    <span style={{ fontFamily: 'Fredoka One', fontSize: 15, color: '#333', fontWeight: 800 }}>{item.label}</span>
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -409,77 +606,83 @@
 
     // ── Admissions
     function Admissions() {
-      const [form, setForm] = useState({ name:'', child:'', age:'', phone:'', program:'', msg:'' });
+      const [form, setForm] = useState({ name: '', child: '', age: '', phone: '', program: '', msg: '' });
       const [sent, setSent] = useState(false);
 
       const handle = e => setForm({ ...form, [e.target.name]: e.target.value });
-      const submit = () => { if(form.name && form.phone) setSent(true); };
+      const submit = () => {
+        if (form.name && form.phone) {
+          const text = encodeURIComponent(`🌟 *New Admission Enquiry* 🌟\n\n*Parent Name:* ${form.name}\n*Child's Name:* ${form.child || 'Not provided'}\n*Age:* ${form.age || 'Not provided'}\n*Phone:* ${form.phone}\n*Program:* ${form.program || 'Not selected'}\n*Message:* ${form.msg || 'None'}`);
+          window.open(`https://wa.me/919354677600?text=${text}`, '_blank');
+          setSent(true);
+        }
+      };
 
       const inputStyle = {
-        width:'100%', padding:'14px 18px', borderRadius:12, border:'2px solid #eee',
-        fontSize:15, fontFamily:'Nunito', outline:'none', background:'#fff',
-        transition:'border 0.2s'
+        width: '100%', padding: '14px 18px', borderRadius: 12, border: '2px solid #eee',
+        fontSize: 15, fontFamily: 'Nunito', outline: 'none', background: '#fff',
+        transition: 'border 0.2s'
       };
 
       return (
-        <section id="admissions" style={{ padding:'90px 5%', background:'linear-gradient(135deg,#fff9e0,#ffe8d6)' }}>
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:60, alignItems:'start' }}>
+        <section id="admissions" style={{ padding: '90px 5%', background: 'linear-gradient(135deg,#fff9e0,#ffe8d6)' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'start' }}>
             {/* Info */}
             <div>
-              <div style={{ display:'inline-block', background:'#fff3d4', borderRadius:50, padding:'6px 18px', marginBottom:16 }}>
-                <span style={{ color:'#ffa600', fontWeight:800, fontSize:13 }}>🎒 ADMISSIONS</span>
+              <div style={{ display: 'inline-block', background: '#fff3d4', borderRadius: 50, padding: '6px 18px', marginBottom: 16 }}>
+                <span style={{ color: '#ffa600', fontWeight: 800, fontSize: 13 }}>🎒 ADMISSIONS</span>
               </div>
-              <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(28px,3.5vw,44px)', color:'#2d2d2d', marginBottom:20, lineHeight:1.2 }}>
+              <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(28px,3.5vw,44px)', color: '#2d2d2d', marginBottom: 20, lineHeight: 1.2 }}>
                 Begin Your Child's Joyful Journey 🚀
               </h2>
-              <p style={{ color:'#666', lineHeight:1.8, marginBottom:28, fontSize:15 }}>
-                Admissions are now open for the academic year 2025–26! Seats are limited — register early to secure your child's spot in our nurturing community.
+              <p style={{ color: '#666', lineHeight: 1.8, marginBottom: 28, fontSize: 15 }}>
+                Admissions are now open for the academic year 2026-27! Seats are limited — register early to secure your child's spot in our nurturing community.
               </p>
-              {[['📅','Application','Fill our simple online form below'],['📞','Callback','Our team calls you within 24 hours'],['🏫','Visit','Schedule a free school tour & demo class'],['✅','Enroll','Complete formalities & welcome to the family!']].map(([e,title,desc],i) => (
-                <div key={title} style={{ display:'flex', gap:16, marginBottom:20, alignItems:'flex-start' }}>
+              {[['📅', 'Application', 'Fill our simple online form below'], ['📞', 'Callback', 'Our team calls you within 24 hours'], ['🏫', 'Visit', 'Schedule a free school tour & demo class'], ['✅', 'Enroll', 'Complete formalities & welcome to the family!']].map(([e, title, desc], i) => (
+                <div key={title} style={{ display: 'flex', gap: 16, marginBottom: 20, alignItems: 'flex-start' }}>
                   <div style={{
-                    width:48, height:48, borderRadius:12, background:'linear-gradient(135deg,#ff6b6b,#ffa600)',
-                    display:'flex', alignItems:'center', justifyContent:'center', fontSize:20, flexShrink:0,
-                    color:'#fff', fontFamily:'Fredoka One'
-                  }}>{i+1}</div>
+                    width: 48, height: 48, borderRadius: 12, background: 'linear-gradient(135deg,#ff6b6b,#ffa600)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, flexShrink: 0,
+                    color: '#fff', fontFamily: 'Fredoka One'
+                  }}>{i + 1}</div>
                   <div>
-                    <div style={{ fontWeight:800, fontSize:16, color:'#2d2d2d', marginBottom:2 }}>{title}</div>
-                    <div style={{ color:'#888', fontSize:14 }}>{desc}</div>
+                    <div style={{ fontWeight: 800, fontSize: 16, color: '#2d2d2d', marginBottom: 2 }}>{title}</div>
+                    <div style={{ color: '#888', fontSize: 14 }}>{desc}</div>
                   </div>
                 </div>
               ))}
             </div>
 
             {/* Form */}
-            <div style={{ background:'#fff', borderRadius:28, padding:36, boxShadow:'0 20px 60px rgba(255,107,107,0.12)', border:'2px solid #ffe0cc' }}>
+            <div style={{ background: '#fff', borderRadius: 28, padding: 36, boxShadow: '0 20px 60px rgba(255,107,107,0.12)', border: '2px solid #ffe0cc' }}>
               {sent ? (
-                <div style={{ textAlign:'center', padding:40 }}>
-                  <div style={{ fontSize:80, marginBottom:20, animation:'bounce-in 0.6s both' }}>🎉</div>
-                  <h3 style={{ fontFamily:'Fredoka One', fontSize:28, color:'#ff6b6b', marginBottom:12 }}>Yay! We Got It!</h3>
-                  <p style={{ color:'#666', lineHeight:1.7 }}>Thank you {form.name}! Our team will call you on <strong>{form.phone}</strong> within 24 hours. We're excited to welcome your little one! 💛</p>
+                <div style={{ textAlign: 'center', padding: 40 }}>
+                  <div style={{ fontSize: 80, marginBottom: 20, animation: 'bounce-in 0.6s both' }}>🎉</div>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 28, color: '#ff6b6b', marginBottom: 12 }}>Yay! We Got It!</h3>
+                  <p style={{ color: '#666', lineHeight: 1.7 }}>Thank you {form.name}! Our team will call you on <strong>{form.phone}</strong> within 24 hours. We're excited to welcome your little one! 💛</p>
                 </div>
               ) : (
                 <>
-                  <h3 style={{ fontFamily:'Fredoka One', fontSize:24, color:'#2d2d2d', marginBottom:24 }}>Quick Enquiry Form 📝</h3>
-                  {[['name','Parent Name *','👤'],['child',"Child's Name",'🧒'],['phone','Phone Number *','📱'],['age',"Child's Age",'🎂']].map(([n,ph,ic]) => (
-                    <div key={n} style={{ marginBottom:16, position:'relative' }}>
-                      <span style={{ position:'absolute', left:14, top:'50%', transform:'translateY(-50%)', fontSize:18 }}>{ic}</span>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 24, color: '#2d2d2d', marginBottom: 24 }}>Quick Enquiry Form 📝</h3>
+                  {[['name', 'Parent Name *', '👤'], ['child', "Child's Name", '🧒'], ['phone', 'Phone Number *', '📱'], ['age', "Child's Age", '🎂']].map(([n, ph, ic]) => (
+                    <div key={n} style={{ marginBottom: 16, position: 'relative' }}>
+                      <span style={{ position: 'absolute', left: 14, top: '50%', transform: 'translateY(-50%)', fontSize: 18 }}>{ic}</span>
                       <input name={n} placeholder={ph} value={form[n]} onChange={handle}
-                        style={{ ...inputStyle, paddingLeft:44 }} />
+                        style={{ ...inputStyle, paddingLeft: 44 }} />
                     </div>
                   ))}
-                  <select name="program" value={form.program} onChange={handle} style={{ ...inputStyle, marginBottom:16, color: form.program ? '#333' : '#aaa' }}>
+                  <select name="program" value={form.program} onChange={handle} style={{ ...inputStyle, marginBottom: 16, color: form.program ? '#333' : '#aaa' }}>
                     <option value="">🎓 Select Program</option>
-                    {['Playgroup (2–3)','Nursery (3–4)','LKG (4–5)','UKG (5–6)','After-School','Music & Dance'].map(p => <option key={p}>{p}</option>)}
+                    {['Playgroup (2–3)', 'Nursery (3–4)', 'LKG (4–5)', 'UKG (5–6)', 'After-School', 'Music & Dance'].map(p => <option key={p}>{p}</option>)}
                   </select>
                   <textarea name="msg" placeholder="💬 Any questions or special needs?" value={form.msg} onChange={handle}
-                    style={{ ...inputStyle, height:90, resize:'none', marginBottom:20 }} />
+                    style={{ ...inputStyle, height: 90, resize: 'none', marginBottom: 20 }} />
                   <button onClick={submit} style={{
-                    width:'100%', padding:'16px', borderRadius:50,
-                    background:'linear-gradient(135deg,#ff6b6b,#ffa600)', color:'#fff',
-                    border:'none', fontFamily:'Nunito', fontWeight:800, fontSize:17,
-                    cursor:'pointer', boxShadow:'0 8px 25px rgba(255,107,107,0.4)',
-                    transition:'transform 0.2s'
+                    width: '100%', padding: '16px', borderRadius: 50,
+                    background: 'linear-gradient(135deg,#ff6b6b,#ffa600)', color: '#fff',
+                    border: 'none', fontFamily: 'Nunito', fontWeight: 800, fontSize: 17,
+                    cursor: 'pointer', boxShadow: '0 8px 25px rgba(255,107,107,0.4)',
+                    transition: 'transform 0.2s'
                   }}>🌟 Submit Enquiry</button>
                 </>
               )}
@@ -492,60 +695,60 @@
     // ── Contact
     function Contact() {
       return (
-        <section id="contact" style={{ padding:'90px 5%', background:'#fff' }}>
-          <div style={{ textAlign:'center', marginBottom:56 }}>
-            <div style={{ display:'inline-block', background:'#e8faf0', borderRadius:50, padding:'6px 18px', marginBottom:12 }}>
-              <span style={{ color:'#51cf66', fontWeight:800, fontSize:13 }}>📍 FIND US</span>
+        <section id="contact" style={{ padding: '90px 5%', background: '#fff' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#e8faf0', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#51cf66', fontWeight: 800, fontSize: 13 }}>📍 FIND US</span>
             </div>
-            <h2 style={{ fontFamily:'Fredoka One', fontSize:'clamp(28px,4vw,44px)', color:'#2d2d2d' }}>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(28px,4vw,44px)', color: '#2d2d2d' }}>
               Come Visit Our Happy Campus 🏫
             </h2>
           </div>
-          <div style={{ maxWidth:1100, margin:'0 auto', display:'grid', gridTemplateColumns:'1fr 1fr', gap:48, alignItems:'start' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'start' }}>
             <div>
               {[
-                { icon:'📍', label:'Address', val:'Happy Day School, Delhi NCR (Near Gurugram Border), Delhi – 110077' },
-                { icon:'📞', label:'Phone', val:'+91 93546 77600' },
-                { icon:'📧', label:'Email', val:'hello@happydayschool.in' },
-                { icon:'🕗', label:'School Hours', val:'Mon–Sat: 8:00 AM – 1:00 PM\nAfter-School: 1:00 PM – 5:00 PM' },
+                { icon: '📍', label: 'Address', val: '1618-B/116, Ganeshpura, Tri Nagar, Delhi, 110035' },
+                { icon: '📞', label: 'Phone', val: '+91 93546 77600' },
+                { icon: '📧', label: 'Email', val: 'happydayschool.trinagar@gmail.com' },
+                { icon: '🕗', label: 'School Hours', val: 'Mon–Sat: 8:00 AM – 1:00 PM\nAfter-School: 1:00 PM – 5:00 PM' },
               ].map(({ icon, label, val }) => (
-                <div key={label} style={{ display:'flex', gap:16, marginBottom:24, alignItems:'flex-start' }}>
-                  <div style={{ width:50, height:50, borderRadius:14, background:'#fff9e0', display:'flex', alignItems:'center', justifyContent:'center', fontSize:24, flexShrink:0, border:'1.5px solid #ffe0a0' }}>{icon}</div>
+                <div key={label} style={{ display: 'flex', gap: 16, marginBottom: 24, alignItems: 'flex-start' }}>
+                  <div style={{ width: 50, height: 50, borderRadius: 14, background: '#fff9e0', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24, flexShrink: 0, border: '1.5px solid #ffe0a0' }}>{icon}</div>
                   <div>
-                    <div style={{ fontWeight:800, fontSize:14, color:'#aaa', marginBottom:4, letterSpacing:0.5 }}>{label.toUpperCase()}</div>
-                    <div style={{ fontWeight:600, fontSize:15, color:'#444', whiteSpace:'pre-line' }}>{val}</div>
+                    <div style={{ fontWeight: 800, fontSize: 14, color: '#aaa', marginBottom: 4, letterSpacing: 0.5 }}>{label.toUpperCase()}</div>
+                    <div style={{ fontWeight: 600, fontSize: 15, color: '#444', whiteSpace: 'pre-line' }}>{val}</div>
                   </div>
                 </div>
               ))}
 
-              <div style={{ display:'flex', gap:16, marginTop:20 }}>
+              <div style={{ display: 'flex', gap: 16, marginTop: 20 }}>
                 {[
-                  ['🌐','Website', '#'],
-                  ['📘','Facebook', '#'],
-                  ['📷','Instagram', 'https://www.instagram.com/happy_day__school/']
-                ].map(([e,n,link]) => (
+                  [<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>, 'Website', '#'],
+                  [<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>, 'Facebook', '#'],
+                  [<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>, 'Instagram', 'https://www.instagram.com/happy_day__school/']
+                ].map(([iconSvg, n, link]) => (
                   <a href={link} target="_blank" rel="noopener noreferrer" key={n} className="card-hover" style={{
-                    background:'#fff3d4', borderRadius:14, padding:'12px 18px',
-                    cursor:'pointer', textAlign:'center', border:'1.5px solid #ffe0a0',
-                    textDecoration:'none', color:'inherit'
+                    background: '#fff3d4', borderRadius: 14, padding: '12px 18px',
+                    cursor: 'pointer', textAlign: 'center', border: '1.5px solid #ffe0a0',
+                    textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'
                   }}>
-                    <div style={{ fontSize:22 }}>{e}</div>
-                    <div style={{ fontSize:11, fontWeight:800, color:'#ffa600', marginTop:4 }}>{n}</div>
+                    <div style={{ color: '#ffa600', marginBottom: '4px', display: 'flex' }}>{iconSvg}</div>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: '#ffa600' }}>{n}</div>
                   </a>
                 ))}
               </div>
             </div>
 
             {/* Map embed */}
-            <div style={{ borderRadius:24, overflow:'hidden', boxShadow:'0 12px 40px rgba(0,0,0,0.12)', border:'3px solid #ffd3a0', background:'#fff9e0' }}>
+            <div style={{ borderRadius: 24, overflow: 'hidden', boxShadow: '0 12px 40px rgba(0,0,0,0.12)', border: '3px solid #ffd3a0', background: '#fff9e0' }}>
               <a href="https://maps.app.goo.gl/g5UnXNqXrxKF5NM89" target="_blank" rel="noopener noreferrer" style={{
-                display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center',
-                height:'380px', textDecoration:'none', color:'#2d2d2d', textAlign:'center', padding:'20px'
+                display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+                height: '380px', textDecoration: 'none', color: '#2d2d2d', textAlign: 'center', padding: '20px'
               }} className="card-hover">
-                <div style={{ fontSize:64, marginBottom:16, animation:'float 3s ease-in-out infinite' }}>🗺️</div>
-                <h3 style={{ fontFamily:'Fredoka One', fontSize:24, color:'#ff6b6b', marginBottom:8 }}>Find Us on Google Maps</h3>
-                <p style={{ color:'#666', fontSize:15, maxWidth:280, lineHeight:1.5 }}>Click here to view our exact location and get directions to Happy Day School.</p>
-                <div style={{ marginTop:24, background:'linear-gradient(135deg,#ff6b6b,#ffa600)', color:'#fff', padding:'10px 24px', borderRadius:50, fontWeight:800, fontSize:15 }}>Open Maps 📍</div>
+                <div style={{ fontSize: 64, marginBottom: 16, animation: 'float 3s ease-in-out infinite' }}>🗺️</div>
+                <h3 style={{ fontFamily: 'Fredoka One', fontSize: 24, color: '#ff6b6b', marginBottom: 8 }}>Find Us on Google Maps</h3>
+                <p style={{ color: '#666', fontSize: 15, maxWidth: 280, lineHeight: 1.5 }}>Click here to view our exact location and get directions to Happy Day School.</p>
+                <div style={{ marginTop: 24, background: 'linear-gradient(135deg,#ff6b6b,#ffa600)', color: '#fff', padding: '10px 24px', borderRadius: 50, fontWeight: 800, fontSize: 15 }}>Open Maps 📍</div>
               </a>
             </div>
           </div>
@@ -556,44 +759,133 @@
     // ── Footer
     function Footer() {
       return (
-        <footer style={{ background:'#1a1a2e', padding:'60px 5% 30px', color:'#ccc' }}>
-          <div style={{ maxWidth:1100, margin:'0 auto' }}>
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(auto-fit,minmax(200px,1fr))', gap:40, marginBottom:48 }}>
+        <footer style={{ background: '#1a1a2e', padding: '60px 5% 30px', color: '#ccc' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit,minmax(200px,1fr))', gap: 40, marginBottom: 48 }}>
               <div>
-                <div style={{ display:'flex', gap:10, alignItems:'center', marginBottom:16 }}>
-                  <span style={{ fontSize:32 }}>🌈</span>
+                <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 16 }}>
+                  <span style={{ fontSize: 32 }}>🌈</span>
                   <div>
-                    <div style={{ fontFamily:'Fredoka One', fontSize:22, color:'#ff6b6b' }}>Happy Day</div>
-                    <div style={{ fontFamily:'Fredoka One', fontSize:12, color:'#ffa600', letterSpacing:1 }}>SCHOOL</div>
+                    <div style={{ fontFamily: 'Fredoka One', fontSize: 22, color: '#ff6b6b' }}>Happy Day</div>
+                    <div style={{ fontFamily: 'Fredoka One', fontSize: 12, color: '#ffa600', letterSpacing: 1 }}>SCHOOL</div>
                   </div>
                 </div>
-                <p style={{ fontSize:14, lineHeight:1.7, color:'#888', marginBottom:20 }}>Where every day is a celebration of learning, laughter and love. Nurturing little minds since 2008.</p>
+                <p style={{ fontSize: 14, lineHeight: 1.7, color: '#888', marginBottom: 20 }}>Where every day is a celebration of learning, laughter and love. Nurturing little minds since 2008.</p>
               </div>
 
               {[
-                { title:'Quick Links', items:['Home','About Us','Programs','Gallery','Admissions','Contact'] },
-                { title:'Programs', items:['Playgroup','Nursery','LKG','UKG','After-School Art','Music & Dance'] },
-                { title:'Connect', items:['Facebook','Instagram','WhatsApp','Parent Portal','Newsletter'] },
+                { title: 'Quick Links', items: ['Home', 'About Us', 'Programs', 'Gallery', 'Admissions', 'Contact'] },
+                { title: 'Programs', items: ['Playgroup', 'Nursery', 'LKG', 'UKG', 'After-School Art', 'Music & Dance'] },
+                { title: 'Connect', items: ['Facebook', 'Instagram', 'WhatsApp', 'Parent Portal', 'Newsletter'] },
               ].map(col => (
                 <div key={col.title}>
-                  <h4 style={{ fontFamily:'Fredoka One', fontSize:18, color:'#fff', marginBottom:16 }}>{col.title}</h4>
+                  <h4 style={{ fontFamily: 'Fredoka One', fontSize: 18, color: '#fff', marginBottom: 16 }}>{col.title}</h4>
                   {col.items.map(item => (
-                    <div key={item} style={{ marginBottom:8 }}>
-                      <a href="#" style={{ textDecoration:'none', color:'#888', fontSize:14, transition:'color 0.2s' }}
-                        onMouseEnter={e => e.target.style.color='#ffa600'}
-                        onMouseLeave={e => e.target.style.color='#888'}>▸ {item}</a>
+                    <div key={item} style={{ marginBottom: 8 }}>
+                      <a href="#" style={{ textDecoration: 'none', color: '#888', fontSize: 14, transition: 'color 0.2s' }}
+                        onMouseEnter={e => e.target.style.color = '#ffa600'}
+                        onMouseLeave={e => e.target.style.color = '#888'}>▸ {item}</a>
                     </div>
                   ))}
                 </div>
               ))}
             </div>
 
-            <div style={{ borderTop:'1px solid #333', paddingTop:24, display:'flex', justifyContent:'space-between', flexWrap:'wrap', gap:12 }}>
-              <div style={{ fontSize:13, color:'#666' }}>© 2026 Happy Day School. All rights reserved. Made with 💛 for little hearts.</div>
-              <div style={{ fontSize:13, color:'#666' }}>Registered Play School</div>
+            <div style={{ borderTop: '1px solid #333', paddingTop: 24, display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
+              <div style={{ fontSize: 13, color: '#666' }}>© 2026 Happy Day School. All rights reserved. Made with 💛 for little hearts.</div>
+              <div style={{ fontSize: 13, color: '#666' }}>Registered Play School</div>
             </div>
           </div>
         </footer>
+      );
+    }
+
+    // ── Safety
+    function Safety() {
+      return (
+        <section id="safety" style={{ padding: '90px 5%', background: 'linear-gradient(135deg,#e0f7fa,#e0f2f1)' }}>
+          <div style={{ maxWidth: 1100, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 60, alignItems: 'center' }}>
+            <div>
+              <div style={{ display: 'inline-block', background: '#b2ebf2', borderRadius: 50, padding: '6px 18px', marginBottom: 16 }}>
+                <span style={{ color: '#00838f', fontWeight: 800, fontSize: 13 }}>🛡️ SAFETY & SECURITY</span>
+              </div>
+              <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d', marginBottom: 16, lineHeight: 1.2 }}>
+                Your Child's Safety is Our Top Priority
+              </h2>
+              <p style={{ color: '#666', lineHeight: 1.8, fontSize: 16, marginBottom: 28 }}>
+                We understand that leaving your little one is a big step. That's why we've built a secure, nurturing environment where parents can have complete peace of mind.
+              </p>
+
+              <div style={{ display: 'flex', gap: 16, marginBottom: 24, alignItems: 'flex-start' }}>
+                <div style={{ width: 56, height: 56, borderRadius: 16, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, flexShrink: 0, boxShadow: '0 8px 20px rgba(0,0,0,0.05)' }}>📹</div>
+                <div>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 18, color: '#2d2d2d', marginBottom: 6 }}>CCTV Surveillance</h3>
+                  <p style={{ color: '#666', lineHeight: 1.6, fontSize: 15 }}>Our entire campus, including classrooms and play areas, is fully monitored 24/7 to ensure complete safety and transparency.</p>
+                </div>
+              </div>
+
+              <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start' }}>
+                <div style={{ width: 56, height: 56, borderRadius: 16, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 28, flexShrink: 0, boxShadow: '0 8px 20px rgba(0,0,0,0.05)' }}>🧸</div>
+                <div>
+                  <h3 style={{ fontFamily: 'Fredoka One', fontSize: 18, color: '#2d2d2d', marginBottom: 6 }}>Child-Proofing & Care</h3>
+                  <p style={{ color: '#666', lineHeight: 1.6, fontSize: 15 }}>Equipped with child-safe furniture, soft-play hazard-free zones, and dedicated staff members trained in pediatric first-aid.</p>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ position: 'relative' }}>
+              <div style={{ width: '100%', aspectRatio: '1', borderRadius: '30px', background: 'linear-gradient(135deg,#ff9a9e,#fecfef)', overflow: 'hidden', boxShadow: '0 20px 40px rgba(255,154,158,0.3)', position: 'relative' }}>
+                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 160, opacity: 0.6, filter: 'drop-shadow(0 10px 10px rgba(0,0,0,0.1))', animation: 'float 5s infinite' }}>🛡️</div>
+                <div style={{ position: 'absolute', bottom: 30, left: 30, right: 30, background: '#fff', padding: '20px', borderRadius: '20px', display: 'flex', alignItems: 'center', gap: 16, boxShadow: '0 15px 35px rgba(0,0,0,0.1)' }}>
+                  <div style={{ fontSize: 32 }}>👩‍⚕️</div>
+                  <div style={{ fontWeight: 800, color: '#2d2d2d', fontSize: 16, lineHeight: 1.4 }}>All our teachers are<br /><span style={{ color: '#ff6b6b' }}>First-Aid Certified!</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    // ── FAQ
+    function FAQ() {
+      const [openIdx, setOpenIdx] = useState(null);
+      const faqs = [
+        { q: "Does my child need to be potty-trained to join Playgroup?", a: "Not at all! Our caring staff will assist and gently guide your child through their potty-training journey in a comfortable, stress-free way." },
+        { q: "What are the school timings?", a: "Our school operates from Monday to Saturday, 8:00 AM to 1:00 PM. Our optional after-school programs run from 1:00 PM to 5:00 PM." },
+        { q: "What is the admission age criteria?", a: "We welcome children starting from 2 years old for Playgroup. Nursery starts at 3 years, LKG at 4, and UKG at 5." },
+        { q: "How do you handle separation anxiety?", a: "We have a gentle settling-in process. Parents are welcome to stay in our waiting area initially, while our trained educators engage the child with fun activities to help them adjust smoothly." }
+      ];
+
+      return (
+        <section id="faq" style={{ padding: '90px 5%', background: '#fffbf0' }}>
+          <div style={{ textAlign: 'center', marginBottom: 56 }}>
+            <div style={{ display: 'inline-block', background: '#eef4ff', borderRadius: 50, padding: '6px 18px', marginBottom: 12 }}>
+              <span style={{ color: '#339af0', fontWeight: 800, fontSize: 13 }}>❓ FREQUENTLY ASKED QUESTIONS</span>
+            </div>
+            <h2 style={{ fontFamily: 'Fredoka One', fontSize: 'clamp(30px,4vw,48px)', color: '#2d2d2d' }}>
+              Got Questions? We've Got Answers!
+            </h2>
+          </div>
+
+          <div style={{ maxWidth: 800, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 16 }}>
+            {faqs.map((faq, i) => (
+              <div key={i} style={{ background: '#fff', borderRadius: 16, border: '1.5px solid #eee', overflow: 'hidden', transition: 'all 0.3s', boxShadow: openIdx === i ? '0 8px 25px rgba(0,0,0,0.06)' : 'none' }}>
+                <button
+                  onClick={() => setOpenIdx(openIdx === i ? null : i)}
+                  style={{ width: '100%', padding: '20px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
+                  <span style={{ fontFamily: 'Nunito', fontWeight: 800, fontSize: 17, color: openIdx === i ? '#ff6b6b' : '#333' }}>{faq.q}</span>
+                  <span style={{ fontSize: 22, color: openIdx === i ? '#ff6b6b' : '#888', transform: openIdx === i ? 'rotate(45deg)' : 'rotate(0)', transition: 'transform 0.3s' }}>
+                    +
+                  </span>
+                </button>
+                <div style={{ maxHeight: openIdx === i ? 200 : 0, overflow: 'hidden', transition: 'max-height 0.3s ease-in-out' }}>
+                  <p style={{ padding: '0 24px 24px', color: '#666', lineHeight: 1.7, fontSize: 16, margin: 0 }}>{faq.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
       );
     }
 
@@ -607,8 +899,10 @@
           <About />
           <Programs />
           <WhyUs />
+          <Safety />
           <Testimonials />
           <Gallery />
+          <FAQ />
           <Admissions />
           <Contact />
           <Footer />
@@ -616,11 +910,11 @@
           <a href="https://wa.me/919354677600?text=Hi! I'm interested in admissions at Happy Day School."
             target="_blank" rel="noreferrer"
             style={{
-              position:'fixed', bottom:28, right:28, zIndex:999,
-              width:60, height:60, borderRadius:'50%',
-              background:'#25d366', display:'flex', alignItems:'center', justifyContent:'center',
-              fontSize:30, boxShadow:'0 8px 25px rgba(37,211,102,0.5)',
-              textDecoration:'none', animation:'pulse-ring 2s infinite'
+              position: 'fixed', bottom: 28, right: 28, zIndex: 999,
+              width: 60, height: 60, borderRadius: '50%',
+              background: '#25d366', display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: 30, boxShadow: '0 8px 25px rgba(37,211,102,0.5)',
+              textDecoration: 'none', animation: 'pulse-ring 2s infinite'
             }}>💬</a>
         </>
       );
@@ -631,10 +925,19 @@
 
   <style>
     @media (max-width: 768px) {
-      .desktop-nav { display: none !important; }
-      #ham { display: block !important; }
-      section > div[style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+      .desktop-nav {
+        display: none !important;
+      }
+
+      #ham {
+        display: block !important;
+      }
+
+      section>div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
     }
   </style>
 </body>
+
 </html>
